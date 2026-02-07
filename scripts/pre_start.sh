@@ -102,7 +102,9 @@ sync_apps() {
         # Start the timer
         start_time=$(date +%s)
 
-        echo "SYNC: Sync 1 of 1"
+        echo "SYNC: Sync 1 of 2"
+        sync_directory "/venv" "${VENV_PATH}"
+        echo "SYNC: Sync 2 of 2"
         sync_directory "/${APP}" "/workspace/${APP}"
         save_template_json
         echo "${VENV_PATH}" > "/workspace/${APP}/venv_path"
@@ -120,20 +122,20 @@ sync_apps() {
     fi
 }
 
-#if [ "$(printf '%s\n' "$EXISTING_VERSION" "$TEMPLATE_VERSION" | sort -V | head -n 1)" = "$EXISTING_VERSION" ]; then
-#    if [ "$EXISTING_VERSION" != "$TEMPLATE_VERSION" ]; then
-#        sync_apps
-#        fix_venvs
-#        link_models
-#
-#         Create logs directory
-#        mkdir -p /workspace/logs
-#    else
-#        echo "SYNC: Existing version is the same as the template version, no syncing required."
-#    fi
-#else
-#    echo "SYNC: Existing version is newer than the template version, not syncing!"
-#fi
+if [ "$(printf '%s\n' "$EXISTING_VERSION" "$TEMPLATE_VERSION" | sort -V | head -n 1)" = "$EXISTING_VERSION" ]; then
+    if [ "$EXISTING_VERSION" != "$TEMPLATE_VERSION" ]; then
+        sync_apps
+        fix_venvs
+        link_models
+
+        # Create logs directory
+        mkdir -p /workspace/logs
+    else
+        echo "SYNC: Existing version is the same as the template version, no syncing required."
+    fi
+else
+    echo "SYNC: Existing version is newer than the template version, not syncing!"
+fi
 
 if [[ ${DISABLE_AUTOLAUNCH} ]]
 then

@@ -2,7 +2,8 @@
 
 export PYTHONUNBUFFERED=1
 echo "Starting FramePack"
-source /venv/bin/activate
+VENV_PATH=$(cat /workspace/FramePack/venv_path)
+source ${VENV_PATH}/bin/activate
 cd /FramePack
 TCMALLOC="$(ldconfig -p | grep -Po "libtcmalloc.so.\d" | head -n 1)"
 export LD_PRELOAD="${TCMALLOC}"
