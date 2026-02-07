@@ -8,7 +8,7 @@ TEMPLATE_VERSION_FILE="/workspace/${APP}/template.json"
 
 echo "TEMPLATE NAME: ${TEMPLATE_NAME}"
 echo "TEMPLATE VERSION: ${TEMPLATE_VERSION}"
-echo "VENV PATH: /workspace/${APP}/venv"
+echo "VENV PATH: ${VENV_PATH}"
 
 if [[ -e ${TEMPLATE_VERSION_FILE} ]]; then
     EXISTING_TEMPLATE_NAME=$(jq -r '.template_name // empty' "$TEMPLATE_VERSION_FILE")
