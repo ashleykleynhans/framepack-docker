@@ -17,10 +17,6 @@ variable "RELEASE_SUFFIX" {
     default = ""
 }
 
-variable "CU_VERSION" {
-    default = "124"
-}
-
 variable "BASE_IMAGE_REPOSITORY" {
     default = "ashleykza/runpod-base"
 }

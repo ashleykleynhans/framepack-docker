@@ -52,6 +52,10 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 ARG RELEASE
 ENV TEMPLATE_VERSION=${RELEASE}
 
+# Set the venv path
+ARG VENV_PATH
+ENV VENV_PATH=${VENV_PATH}
+
 # Copy the scripts
 WORKDIR /
 COPY --chmod=755 scripts/* ./
