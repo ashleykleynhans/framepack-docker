@@ -122,11 +122,15 @@ sync_apps() {
     fi
 }
 
+fix_venvs() {
+    echo "VENV: Fixing FramePack venv..."
+    /fix_venv.sh /venv ${VENV_PATH}
+}
+
 if [ "$(printf '%s\n' "$EXISTING_VERSION" "$TEMPLATE_VERSION" | sort -V | head -n 1)" = "$EXISTING_VERSION" ]; then
     if [ "$EXISTING_VERSION" != "$TEMPLATE_VERSION" ]; then
         sync_apps
         fix_venvs
-        link_models
 
         # Create logs directory
         mkdir -p /workspace/logs
