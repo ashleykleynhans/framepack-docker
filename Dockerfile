@@ -11,14 +11,20 @@ ENV DEBIAN_FRONTEND=noninteractive \
 WORKDIR /
 RUN python3 -m venv --system-site-packages /venv
 
-# Install torch and xformers
+# Install torch
 ARG INDEX_URL
 ARG TORCH_VERSION
-ARG XFORMERS_VERSION
 RUN source /venv/bin/activate && \
     pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
-    pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL} && \
     deactivate
+
+# Install xformers (optional)
+ARG XFORMERS_VERSION=""
+RUN if [ -n "${XFORMERS_VERSION}" ]; then \
+        source /venv/bin/activate && \
+        pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL} && \
+        deactivate; \
+    fi
 
 # Clone the git repo of FramePack and set version
 ARG FRAMEPACK_COMMIT
