@@ -14,7 +14,7 @@
 | Docker Image Tag | CUDA | Python | Torch | xformers     | RunPod                                                                      |
 |------------------|------|--------|-------|--------------|-----------------------------------------------------------------------------|
 | cu124-py311      | 12.4 | 3.11   | 2.6.0 | 0.0.29.post3 | [Deploy](https://console.runpod.io/deploy?template=ttpsmdrpha&ref=2xxro4sy) |
-| cu128-py311      | 12.8 | 3.11   | 2.9.1 | 0.0.33       | [Deploy](https://console.runpod.io/deploy?template=ttpsmdrpha&ref=2xxro4sy) |
+| cu128-py311      | 12.8 | 3.11   | 2.9.1 | 0.0.33       | [Deploy](https://console.runpod.io/deploy?template=nkscfv1dts&ref=2xxro4sy) |
 
 ## Installs
 
@@ -36,7 +36,7 @@ This image is designed to work on [RunPod](https://runpod.io?ref=2xxro4sy).
 | Name                | Docker Image                          | RunPod Template                                                             |
 |---------------------|---------------------------------------|-----------------------------------------------------------------------------|
 | FramePack CUDA 12.4 | ashleykza/framepack:cu124-py311-1.0.1 | [Deploy](https://console.runpod.io/deploy?template=ttpsmdrpha&ref=2xxro4sy) |
-| FramePack CUDA 12.8 | ashleykza/framepack:cu128-py311-1.0.1 | [Deploy](https://console.runpod.io/deploy?template=ttpsmdrpha&ref=2xxro4sy) |
+| FramePack CUDA 12.8 | ashleykza/framepack:cu128-py311-1.0.1 | [Deploy](https://console.runpod.io/deploy?template=nkscfv1dts&ref=2xxro4sy) |
 
 ## Building the Docker image
 
