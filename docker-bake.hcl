@@ -26,7 +26,7 @@ variable "BASE_IMAGE_VERSION" {
 }
 
 variable "FRAMEPACK_COMMIT" {
-    default = "97fe5dbe06ac1f337ece08935b1076a35eefeeb9"
+    default = "8f381765e8d3cdad92a3ee04d0cd94f6ee184d0f"
 }
 
 variable "VENV_PATH" {
